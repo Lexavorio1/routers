@@ -11,20 +11,19 @@ export const TaskPage = () => {
   
   const { isDelete, onDelete } = useDelete(setFlags)
   const { isUpdate, onUpdate } = useUpdate(setFlags)
-  const { todoList, isLoading } = useGetTodoList(flagLoading)
+  const { isLoading } = useGetTodoList(flagLoading)
   
   const [task, setTask] = useState(null)
 
   useEffect(() => {
-    if (todoList.length > 0) {
-      const foundTask = todoList.find(t => t.id.toString() === id)
-      if (foundTask) {
-        setTask(foundTask)
-      } else {
-        navigate('/404')
-      }
-    }
-  }, [todoList, id, navigate])
+    fetch(`http://localhost:2016/todos/${id}`)
+      .then((response)=>{
+        return response.json()
+      })
+      .then((data)=>{
+        setTask(data)
+      })
+  }, [id])
 
   if (isLoading) {
     return <div className={styles.loader}></div>
@@ -54,9 +53,9 @@ export const TaskPage = () => {
         <button
           disabled={isDelete || isUpdate}
           className={styles.deleteButton}
-          onClick={() => {
+          onClick={async () => {
             if (window.confirm('Вы уверены, что хотите удалить это дело?')) {
-              onDelete(task.id)
+              await onDelete(task.id)
               navigate('/')
             }
           }}

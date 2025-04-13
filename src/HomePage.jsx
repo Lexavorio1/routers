@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { debounce } from 'lodash'
 import { Link } from 'react-router-dom'
 import {
-  useUpdate,
-  useDelete,
   AddTodoListForm,
   useAddTodoList,
   useGetTodoList
@@ -23,9 +21,7 @@ export const HomePage = () => {
   const [flagLoading, setFlagLoading] = useState(false)
   const setFlags = () => setFlagLoading(!flagLoading)
 
-  const { isDelete, onDelete } = useDelete(setFlags)
-  const { isUpdate, onUpdate } = useUpdate(setFlags)
-  const { isCreating, onAdd } = useAddTodoList(setFlags)
+  const { onAdd } = useAddTodoList(setFlags)
   const { todoList, isLoading } = useGetTodoList(flagLoading)
   
   const [searchPhrase, setSearchPhrase] = useState('')
