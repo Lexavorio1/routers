@@ -1,0 +1,180 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #0d0d1a;
+  color: #e0e0ff;
+  font-family: 'Courier New', monospace;
+  border: 1px solid #4d4dff;
+  box-shadow: 0 0 20px rgba(77, 77, 255, 0.3);
+}
+
+/* Кнопки с неоновым эффектом */
+.addButton, .sortButton, .backButton, .updateButton {
+  margin: 10px 5px;
+  padding: 8px 12px;
+  background: none;
+  border: 1px solid #00ff9d;
+  color: #00ff9d;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Courier New', monospace;
+}
+
+.addButton:hover, .sortButton:hover, .backButton:hover, .updateButton:hover {
+  background: rgba(0, 255, 157, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+  text-shadow: 0 0 5px #00ff9d;
+}
+
+.deleteButton {
+  padding: 8px 16px;
+  background-color: #ff2a6d;
+  color: white;
+  border: 1px solid #ff2a6d;
+  transition: all 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: #ff0a4d;
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+}
+
+/* Поле поиска */
+.searchInput {
+  margin: 10px 5px;
+  padding: 8px 12px;
+  background: rgba(10, 10, 30, 0.8);
+  border: 1px solid #4d4dff;
+  color: #e0e0ff;
+  font-family: 'Courier New', monospace;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+/* Список задач с тематическими стилями */
+.list {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #2d2d4d;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(20, 20, 40, 0.6);
+  transition: all 0.3s;
+}
+
+.list:hover {
+  border-color: #4d4dff;
+  background: rgba(30, 30, 60, 0.8);
+}
+
+/* Стили для разных категорий задач */
+.list.factory {
+  border-left: 5px solid #ff5555;
+  background: linear-gradient(to right, rgba(255, 85, 85, 0.1), rgba(20, 20, 40, 0.6));
+}
+
+.list.home {
+  border-left: 5px solid #55aaff;
+  background: linear-gradient(to right, rgba(85, 170, 255, 0.1), rgba(20, 20, 40, 0.6));
+}
+
+.list.study {
+  border-left: 5px solid #00ff9d;
+  background: linear-gradient(to right, rgba(0, 255, 157, 0.1), rgba(20, 20, 40, 0.6));
+}
+
+.list.skyrim {
+  border-left: 5px solid #aa55ff;
+  background: linear-gradient(to right, rgba(170, 85, 255, 0.1), rgba(20, 20, 40, 0.6));
+}
+
+.taskLink {
+  text-decoration: none;
+  color: #e0e0ff;
+  flex-grow: 1;
+  transition: all 0.3s;
+}
+
+.taskLink:hover {
+  color: #00ff9d;
+  text-shadow: 0 0 5px #00ff9d;
+}
+
+/* Анимация загрузки */
+.loader {
+  border: 4px solid #1a1a33;
+  border-top: 4px solid #00ff9d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+  box-shadow: 0 0 10px #00ff9d;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Страница задачи */
+.taskPage {
+  padding: 20px;
+  background: rgba(10, 10, 30, 0.8);
+  border: 1px solid #4d4dff;
+}
+
+.taskTitle {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #00ff9d;
+  text-shadow: 0 0 5px #00ff9d;
+}
+
+.taskActions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Страница 404 */
+.notFound {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background: rgba(10, 10, 30, 0.8);
+  border: 1px solid #ff2a6d;
+}
+
+.homeLink {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4d4dff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.homeLink:hover {
+  background-color: #6d6dff;
+  box-shadow: 0 0 10px rgba(109, 109, 255, 0.5);
+}
+
+/* Глитч-эффекты */
+@keyframes glitch {
+  0% { text-shadow: 2px 0 #ff00aa, -2px 0 #00ff9d; }
+  25% { text-shadow: -2px 0 #ff00aa, 2px 0 #00ff9d; }
+  50% { text-shadow: 2px 0 #ff00aa, -2px 0 #00ff9d; }
+  75% { text-shadow: -2px 0 #ff00aa, 2px 0 #00ff9d; }
+  100% { text-shadow: 2px 0 #ff00aa, -2px 0 #00ff9d; }
+}
+
+.glitch-text {
+  animation: glitch 0.5s infinite;
+}

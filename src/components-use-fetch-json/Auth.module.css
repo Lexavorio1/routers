@@ -1,0 +1,164 @@
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  border: 1px solid #4d4dff;
+  border-radius: 8px;
+  width: 320px;
+  margin: 40px auto;
+  background: rgba(10, 10, 30, 0.8);
+  box-shadow: 0 0 20px rgba(77, 77, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.authContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 157, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.authContainer:hover::before {
+  left: 100%;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #00ff9d;
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+  letter-spacing: 1px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #4d4dff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: rgba(20, 20, 40, 0.6);
+  color: #e0e0ff;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.btn {
+  display: flex;
+  gap: 5px;
+}
+
+.button {
+  flex-grow: 1;
+  margin: 5px 5px;
+  background: linear-gradient(135deg, #4d4dff 0%, #00ff9d 100%);
+  color: #0d0d1a;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #6d6dff 0%, #20ffad 100%);
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
+  transform: translateY(-2px);
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40px;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+
+.button:hover::after {
+  left: 120%;
+}
+
+.error {
+  color: #ff2a6d;
+  margin-top: 8px;
+  font-size: 0.9em;
+  text-shadow: 0 0 3px rgba(255, 42, 109, 0.3);
+  animation: glitch 0.5s infinite alternate;
+}
+
+@keyframes glitch {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+
+/* Дополнительные элементы */
+.authHeader {
+  color: #4d4dff;
+  text-align: center;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.authHeader::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #4d4dff, #00ff9d);
+}
+
+.switchMode {
+  margin-top: 20px;
+  color: #a0a0ff;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.switchMode:hover {
+  color: #00ff9d;
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+}
